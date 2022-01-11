@@ -9,6 +9,10 @@
     "colors_background_2": "#F3F3F3",
     "type_header_font": "assistant_n4",
     "type_body_font": "assistant_n4",
+    "social_facebook_link": "https:\/\/www.facebook.com\/ECODEapparel\/",
+    "social_pinterest_link": "https:\/\/www.pinterest.com\/ecodeofficial\/_created\/",
+    "social_instagram_link": "https:\/\/www.instagram.com\/ecode_official\/",
+    "social_tiktok_link": "https:\/\/www.tiktok.com\/@ecode_official",
     "predictive_search_enabled": false,
     "sections": {
       "announcement-bar": {
@@ -71,7 +75,7 @@
           "color_scheme": "accent-1",
           "newsletter_enable": false,
           "newsletter_heading": "Subscribe to our emails",
-          "show_social": false,
+          "show_social": true,
           "enable_country_selector": false,
           "enable_language_selector": false,
           "payment_enable": false
