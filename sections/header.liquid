@@ -4,7 +4,7 @@
 <!-- Header 1 start -->
 {%when "header1" %}
 {%- if section.settings.enable_sticky_header != blank%}
-<header class="header header1 {{ 'header header1' | append: 'header_sticky'}}">
+<header class="header header1 {{' ' | append: 'header_sticky'}}">
   {%- else -%} 
   <header class="header header1"> 
   {%- endif -%}
