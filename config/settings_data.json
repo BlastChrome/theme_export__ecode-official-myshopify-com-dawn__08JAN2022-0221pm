@@ -38,10 +38,8 @@
         "type": "header",
         "settings": {
           "header_type": "header1",
-          "color_scheme": "inverse",
           "logo": "shopify:\/\/shop_images\/ecodepng_1.png",
-          "logo_width": 120,
-          "logo_position": "middle-left",
+          "logo_width": 110,
           "menu": "main-menu",
           "show_line_separator": false,
           "enable_sticky_header": true
