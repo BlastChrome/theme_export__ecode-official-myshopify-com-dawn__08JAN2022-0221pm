@@ -3,7 +3,11 @@
 
 <!-- Header 1 start -->
 {%when "header1" %}
-<header class="header header1">
+{%- if section.settings.enable_sticky_header != blank%}
+<header class="header header1 {{ 'header header1' | append: 'header_sticky'}}">
+  {%- else -%} 
+  <header class="header header1"> 
+  {%- endif -%}
   <div class="header1__logo-container">
     <a href="{{ routes.root_url }}" class="header1___logo">
       {%- if section.settings.logo != blank -%}
@@ -73,6 +77,7 @@
   </div>
   {%- endif -%}
 </header>
+
 
 <!-- Header 2 start -->
 {%when "header2" %}
