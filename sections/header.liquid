@@ -1,53 +1,181 @@
-{% case section.settings.header_type%} 
-  {%when "header1" %}   
-    <header class="header header1">
-      <div class="header1__logo-container">
-        <a href="{{ routes.root_url }}" class="header1___logo">
-          {%- if section.settings.logo != blank -%}
-            {%- assign image_size = section.settings.logo_width | append: 'x' -%}
-            <img srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
-              src="{{ section.settings.logo | img_url: image_size }}"
-              loading="lazy"
-              class="header__heading-logo"
-              width="{{ section.settings.logo.width }}"
-              height="{{ section.settings.logo.height }}"
-              alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
-            >
-          {%- else -%}
-           {{ shop.name }}
+{% case section.settings.header_type%}
+
+
+<!-- Header 1 start -->
+{%when "header1" %}
+<header class="header header1">
+  <div class="header1__logo-container">
+    <a href="{{ routes.root_url }}" class="header1___logo">
+      {%- if section.settings.logo != blank -%}
+      {%- assign image_size = section.settings.logo_width | append: 'x' -%}
+      <img
+        srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+        src="{{ section.settings.logo | img_url: image_size }}" loading="lazy" class="header__heading-logo"
+        width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}"
+        alt="{{ section.settings.logo.alt | default: shop.name | escape }}">
+      {%- else -%}
+      {{ shop.name }}
+      {%- endif -%}
+    </a>
+  </div>
+  <ul class="header1__nav-links d-none d-lg-flex">
+    {%- if section.settings.menu != blank -%}
+    {%- for link in section.settings.menu.links -%}
+    {%- if link.links == blank -%}
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    {%- else -%}
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    {%- endif -%}
+    {%- endfor -%}
+    {%- endif -%}
+  </ul>
+  <div class="header1__search-container d-none d-lg-block"><input type="text" name="search"><a href="#"><i
+        class="fas fa-search"></i></a></div>
+  <ul class="header1__mb-nav-links mb-nav d-flex d-lg-none">
+    {%- if section.settings.menu != blank -%}
+    {%- for link in section.settings.menu.links -%}
+    {%- if link.links == blank -%}
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    {%- endif -%}
+    {%- endfor -%}
+  </ul>
+  <div class="header1__icon-container">
+    <!-- <a href="{{ routes.cart_url }}"><i class="fas fa-shopping-cart"></i></a> -->
+    <!-- <a href="{{ routes.cart_url }}">
+       <img src="https://cdn.shopify.com/s/files/1/0293/9277/products/12-13-21Studio2_RT_KJ_10-12-08_6_E1430_Green_4512_EH_468x.jpg?v=1639427698" className="collection3__img-front"  alt="" />
+      <img src="https://cdn.shopify.com/s/files/1/0293/9277/products/12-13-21Studio2_RT_KJ_10-12-42_6_E1430_Green_4520_EH_468x.jpg?v=1639427698" className="collection3__img-back"  alt="" />
+    </a> -->
+    <!-- <a href="{{ routes.cart_url }}">
+      <span class="iconify" data-icon="ic:baseline-shopping-cart" style="color: white;" data-width="25"></span>
+    </a> -->
+    <a href="{{ routes.cart_url }}" class="headericon headericon--cart link focus-inset" id="cart-icon-bubble">
+      {%- liquid
+        if cart == empty
+          render 'icon-cart-empty'
+        else
+          render 'icon-cart'
+        endif
+      -%}
+      <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+      {%- if cart != empty -%}
+        <div class="cart-count-bubble">
+          {%- if cart.item_count < 100 -%}
+            <span aria-hidden="true">{{ cart.item_count }}</span>
           {%- endif -%}
-        </a>
-    </div>
-    <ul class="header1__nav-links d-none d-lg-flex">
-        {%- if section.settings.menu != blank -%}
-          {%- for link in section.settings.menu.links -%}
-            {%- if link.links == blank -%}
-              <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
-            {%- else -%} 
-              <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
-              <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
-              <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
-              <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
-              {%- endif -%}
-          {%- endfor -%}
-        {%- endif -%}
-      </ul>
-      <div class="header1__search-container d-none d-lg-block"><input type="text" name="search"><a href="#"><i
-            class="fas fa-search"></i></a></div>
-        <ul class="header1__mb-nav-links mb-nav d-flex d-lg-none">
-        {%- if section.settings.menu != blank -%} 
-          {%- for link in section.settings.menu.links -%}
-              {%- if link.links == blank -%}
-              <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
-              {%- endif -%}
-          {%- endfor -%}
-      </ul>
-        <div class="header1__icon-container">
-          <a href="#"><i class="fas fa-shopping-cart"></i></a>
-          <a href="#"><i class="fas fa-bars d-inline-block d-lg-none"></i></a>
+          <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
         </div>
-        {%- endif -%}
-    </header>
+      {%- endif -%}
+    </a>
+    <a href="#"><i class="fas fa-bars d-inline-block d-lg-none"></i></a>
+  </div>
+  {%- endif -%}
+</header>
+
+<!-- Header 2 start -->
+{%when "header2" %}
+<header class="header header2">
+  <div class="header2__search-container d-none d-lg-block"><input type="text" name="search"><a href="#"><i
+        class="fas fa-search"></i></a></div>
+  <div class="header2__logo-container">
+    <a href="{{ routes.root_url }}" class="header1___logo">
+      {%- if section.settings.logo != blank -%}
+      {%- assign image_size = section.settings.logo_width | append: 'x' -%}
+      <img
+        srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+        src="{{ section.settings.logo | img_url: image_size }}" loading="lazy" class="header__heading-logo"
+        width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}"
+        alt="{{ section.settings.logo.alt | default: shop.name | escape }}">
+      {%- else -%}
+      {{ shop.name }}
+      {%- endif -%}
+    </a>
+  </div>
+  <ul class="header2__nav-links d-none d-lg-flex">
+    {%- if section.settings.menu != blank -%}
+    {%- for link in section.settings.menu.links -%}
+    {%- if link.links == blank -%}
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    {%- else -%}
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    {%- endif -%}
+    {%- endfor -%}
+    {%- endif -%}
+  </ul>
+  <ul class="header2__mb-nav-links mb-nav d-flex d-lg-none">
+    {%- if section.settings.menu != blank -%}
+    {%- for link in section.settings.menu.links -%}
+    {%- if link.links == blank -%}
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    {%- else -%}
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    {%- endif -%}
+    {%- endfor -%}
+    {%- endif -%}
+  </ul>
+  <div class="header2__icon-container"><a href="{{ routes.cart_url }}"><i class="fas fa-shopping-cart"></i></a><a href="#"><i
+        class="fas fa-bars d-inline-block d-lg-none"></i></a></div>
+</header>
+
+<!-- Header 3 start -->
+{%when "header3" %}
+<header class="header header3">
+  <ul class="header3__nav-links d-none d-lg-flex">
+    {%- if section.settings.menu != blank -%}
+    {%- for link in section.settings.menu.links -%}
+    {%- if link.links == blank -%}
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    {%- else -%}
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    {%- endif -%}
+    {%- endfor -%}
+    {%- endif -%}
+  </ul>
+  <div class="header3__logo-container">
+    <a href="{{ routes.root_url }}" class="header1___logo">
+      {%- if section.settings.logo != blank -%}
+      {%- assign image_size = section.settings.logo_width | append: 'x' -%}
+      <img
+        srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+        src="{{ section.settings.logo | img_url: image_size }}" loading="lazy" class="header__heading-logo"
+        width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}"
+        alt="{{ section.settings.logo.alt | default: shop.name | escape }}">
+      {%- else -%}
+      {{ shop.name }}
+      {%- endif -%}
+    </a>
+  </div>
+  <div class="header3__search-container d-none d-lg-block"><input type="text" name="search"><a href="#"><i
+        class="fas fa-search"></i></a></div>
+  <ul class="header3__mb-nav-links mb-nav d-flex d-lg-none">
+    {%- if section.settings.menu != blank -%}
+    {%- for link in section.settings.menu.links -%}
+    {%- if link.links == blank -%}
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    {%- else -%}
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    <li><a class="header1__nav-link" href="{{ link.url }}">{{ link.title | escape }}</a></li>
+    {%- endif -%}
+    {%- endfor -%}
+    {%- endif -%}
+  </ul>
+  <div class="header3__icon-container"><a href="{{ routes.cart_url }}"><i class="fas fa-shopping-cart"></i></a><a href="#"><i
+        class="fas fa-bars d-inline-block d-lg-none"></i></a></div>
+</header>
+
 {% endcase%}
 
 
@@ -57,24 +185,24 @@
 "name": "t:sections.header.name",
 "settings": [
 {
-  "type": "select",
-  "id": "header_type",
-  "label": "Type of Header",
-  "options": [
-    {
-      "value": "header1",
-      "label": "Header 1"
-    },
-    {
-      "value": "header2",
-      "label": "Header 2"
-    },
-    {
-      "value": "header3",
-      "label": "Header 3"
-    }
-  ],
-  "default": "header1"
+"type": "select",
+"id": "header_type",
+"label": "Type of Header",
+"options": [
+{
+"value": "header1",
+"label": "Header 1"
+},
+{
+"value": "header2",
+"label": "Header 2"
+},
+{
+"value": "header3",
+"label": "Header 3"
+}
+],
+"default": "header1"
 },
 {
 "type": "select",
