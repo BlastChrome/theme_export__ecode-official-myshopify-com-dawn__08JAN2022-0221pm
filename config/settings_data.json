@@ -40,7 +40,7 @@
           "header_type": "header1",
           "color_scheme": "inverse",
           "logo": "shopify:\/\/shop_images\/ecodepng_1.png",
-          "logo_width": 100,
+          "logo_width": 120,
           "logo_position": "middle-left",
           "menu": "main-menu",
           "show_line_separator": false,
