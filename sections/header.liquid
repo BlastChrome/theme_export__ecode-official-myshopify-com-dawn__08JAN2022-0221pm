@@ -7,7 +7,7 @@
 <header class="header header1 {{' ' | append: 'header_sticky'}}">
   {%- else -%} 
   <header class="header header1"> 
-  {%- endif -%}
+{%- endif -%}
   <div class="header1__logo-container">
     <a href="{{ routes.root_url }}" class="header1___logo">
       {%- if section.settings.logo != blank -%}
@@ -252,27 +252,7 @@
 "unit": "t:sections.header.settings.logo_width.unit",
 "label": "t:sections.header.settings.logo_width.label"
 },
-{
-"type": "select",
-"id": "logo_position",
-"options": [
-{
-"value": "middle-left",
-"label": "t:sections.header.settings.logo_position.options__1.label"
-},
-{
-"value": "top-left",
-"label": "t:sections.header.settings.logo_position.options__2.label"
-},
-{
-"value": "top-center",
-"label": "t:sections.header.settings.logo_position.options__3.label"
-}
-],
-"default": "middle-left",
-"label": "t:sections.header.settings.logo_position.label",
-"info": "t:sections.header.settings.logo_position.info"
-},
+
 {
 "type": "link_list",
 "id": "menu",
