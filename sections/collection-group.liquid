@@ -5,22 +5,22 @@
             <div class="col-sm-12 col-md-6 d-flex d-flex justify-content-center">
                 <div class="collection1__product-item">
                     <div class="collection1__product-image"> 
-                        {% if product.image[0] != blank %}
-                        <img srcset="{%- if product.image[0] >= 375 -%}{{ section.settings.image | img_url: '375x' }} 375w,{%- endif -%}
-                            {%- if product.image[0] >= 750 -%}{{ product.image[0] | img_url: '750x' }} 750w,{%- endif -%}
-                            {%- if product.image[0] >= 1100 -%}{{ product.image[0] | img_url: '1100x' }} 1100w,{%- endif -%}
-                            {%- if product.image[0] >= 1500 -%}{{ product.image[0] | img_url: '1500x' }} 1500w,{%- endif -%}
-                            {%- if product.image[0] >= 1780 -%}{{ product.image[0] | img_url: '1780x' }} 1780w,{%- endif -%}
-                            {%- if product.image[0] >= 2000 -%}{{ product.image[0] | img_url: '2000x' }} 2000w,{%- endif -%}
-                            {%- if product.image[0] >= 3000 -%}{{ product.image[0] | img_url: '3000x' }} 3000w,{%- endif -%}
-                            {%- if product.image[0] >= 3840 -%}{{ product.image[0] | img_url: '3840x' }} 3840w,{%- endif -%}
+                        {% if product.images[0] != blank %}
+                        <img srcset="{%- if product.images[0] >= 375 -%}{{ product.images[0] | img_url: '375x' }} 375w,{%- endif -%}
+                            {%- if product.images[0] >= 750 -%}{{ product.images[0] | img_url: '750x' }} 750w,{%- endif -%}
+                            {%- if product.images[0] >= 1100 -%}{{ product.images[0] | img_url: '1100x' }} 1100w,{%- endif -%}
+                            {%- if product.images[0] >= 1500 -%}{{ product.images[0] | img_url: '1500x' }} 1500w,{%- endif -%}
+                            {%- if product.images[0] >= 1780 -%}{{ product.images[0] | img_url: '1780x' }} 1780w,{%- endif -%}
+                            {%- if product.images[0] >= 2000 -%}{{ product.images[0] | img_url: '2000x' }} 2000w,{%- endif -%}
+                            {%- if product.images[0] >= 3000 -%}{{ product.images[0] | img_url: '3000x' }} 3000w,{%- endif -%}
+                            {%- if product.images[0] >= 3840 -%}{{ product.images[0] | img_url: '3840x' }} 3840w,{%- endif -%}
                                 "sizes="(min-width: 11000px) 2000px, (min-width: 750px) 
                                 calc((100vw - 130px) /2), calc((100vw - 50px) /2)"
-                                src="{{ product.image[0] | img_url: '1500x' }}"
-                                alt="{{ product.iamages[0].alt | escape }}"
+                                src="{{ product.images[0] | img_url: '1500x' }}"
+                                alt="{{ product.images[0].alt | escape }}"
                                 loading="lazy"
-                                width="{{ product.image[0].width }}"
-                                height="{{ product.image[0].height}}"
+                                width="{{ product.images[0].width }}"
+                                height="{{ product.images[0].height}}"
                             > 
                     {%- else -%} 
                     {{ 'image' | placeholder_svg_tag: 'placeholder-svg'}}    
