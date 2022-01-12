@@ -4,14 +4,39 @@
             {%- for product in section.settings.collection.products limit: 2 -%}
             <div class="col-sm-12 col-md-6 d-flex d-flex justify-content-center">
                 <div class="collection1__product-item">
-                    <div class="collection1__product-image"><img class="collection1__img-front"
+                    <div class="collection1__product-image">
+                        <!-- <img class="collection1__img-front" 
                             src="https://cdn.shopify.com/s/files/1/0293/9277/products/12-30-21Studio2_SN_KP_10-37-23_30_DF043EP02_HotPink_7771_MH_468x.jpg?v=1641420873"
-                            alt="placeholder"><img class="collection1__img-back"
+                            alt="placeholder">
+                        <img class="collection1__img-back"
                             src="https://cdn.shopify.com/s/files/1/0293/9277/products/12-30-21Studio2_SN_KP_10-37-23_30_DF043EP02_HotPink_7775_EH_468x.jpg?v=1641420873"
-                            alt="placeholder"></div>
+                            alt="placeholder"> -->
+                            {%- if section.settings.image_2 != blank -%}
+    <div class="banner__media media{% if section.settings.image != blank %} banner__media-half{% endif %}">
+      <img
+        srcset="{%- if section.settings.image_2.width >= 375 -%}{{ section.settings.image_2 | img_url: '375x' }} 375w,{%- endif -%}
+          {%- if section.settings.image_2.width >= 750 -%}{{ section.settings.image_2 | img_url: '750x' }} 750w,{%- endif -%}
+          {%- if section.settings.image_2.width >= 1100 -%}{{ section.settings.image_2 | img_url: '1100x' }} 1100w,{%- endif -%}
+          {%- if section.settings.image_2.width >= 1500 -%}{{ section.settings.image_2 | img_url: '1500x' }} 1500w,{%- endif -%}
+          {%- if section.settings.image_2.width >= 1780 -%}{{ section.settings.image_2 | img_url: '1780x' }} 1780w,{%- endif -%}
+          {%- if section.settings.image_2.width >= 2000 -%}{{ section.settings.image_2 | img_url: '2000x' }} 2000w,{%- endif -%}
+          {%- if section.settings.image_2.width >= 3000 -%}{{ section.settings.image_2 | img_url: '3000x' }} 3000w,{%- endif -%}
+          {%- if section.settings.image_2.width >= 3840 -%}{{ section.settings.image_2 | img_url: '3840x' }} 3840w,{%- endif -%}
+          {{ section.settings.image_2 | img_url: 'master' }} {{ section.settings.image_2.width }}w"
+        sizes="{% if section.settings.image != blank and section.settings.stack_images_on_mobile %}(min-width: 750px) 50vw, 100vw{% elsif section.settings.image != blank %}50vw{% else %}100vw{% endif %}"
+        src="{{ section.settings.image_2 | img_url: '1500x' }}"
+        loading="lazy"
+        alt="{{ section.settings.image_2.alt | escape }}"
+        width="{{ section.settings.image_2.width }}"
+        height="{{ section.settings.image_2.width | divided_by: section.settings.image_2.aspect_ratio }}"
+        {% if section.settings.image != blank %}class="banner__media-image-half"{% endif %}
+      >
+    </div>
+  {%- endif -%}
+                        </div>
                     <div class="collection1__product-info"><small class="collection1__product-small">Front View</small>
-                        <p class="collection1__product-title">title</p>
-                        <p class="collection1__product-price">price</p>
+                        <p class="collection1__product-title">{{ product.title}}</p>
+                        <p class="collection1__product-price">{{ product.price}}</p>
                     </div>
                 </div>
             </div> 
