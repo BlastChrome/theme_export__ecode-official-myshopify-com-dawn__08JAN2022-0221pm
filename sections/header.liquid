@@ -38,7 +38,7 @@
   </ul>
   <div class="header1__search-container d-none d-lg-block"><input type="text" name="search"><a href="#"><i
         class="fas fa-search"></i></a></div>
-  <ul class="header1__mb-nav-links mb-nav d-flex d-lg-none">
+  <ul class="header1__mb-nav-links mb-nav d-none">
     {%- if section.settings.menu != blank -%}
     {%- for link in section.settings.menu.links -%}
     {%- if link.links == blank -%}
@@ -116,7 +116,7 @@
     {%- endfor -%}
     {%- endif -%}
   </ul>
-  <ul class="header2__mb-nav-links mb-nav d-flex d-lg-none">
+  <ul class="header2__mb-nav-links mb-nav d-none">
     {%- if section.settings.menu != blank -%}
     {%- for link in section.settings.menu.links -%}
     {%- if link.links == blank -%}
@@ -171,7 +171,7 @@
   </div>
   <div class="header3__search-container d-none d-lg-block"><input type="text" name="search"><a href="#"><i
         class="fas fa-search"></i></a></div>
-  <ul class="header3__mb-nav-links mb-nav d-flex d-lg-none">
+  <ul class="header3__mb-nav-links mb-nav d-none">
     {%- if section.settings.menu != blank -%}
     {%- for link in section.settings.menu.links -%}
     {%- if link.links == blank -%}
