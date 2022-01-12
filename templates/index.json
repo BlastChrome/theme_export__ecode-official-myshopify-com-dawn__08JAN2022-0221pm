@@ -57,6 +57,7 @@
     },
     "featured_products": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "",
         "collection": "all",
@@ -76,11 +77,18 @@
       "disabled": true,
       "settings": {
       }
+    },
+    "16419601494f846f7d": {
+      "type": "collection-group",
+      "settings": {
+        "collection": "t-shirts"
+      }
     }
   },
   "order": [
     "164186354975049f48",
     "featured_products",
-    "pagefly-home"
+    "pagefly-home",
+    "16419601494f846f7d"
   ]
 }
