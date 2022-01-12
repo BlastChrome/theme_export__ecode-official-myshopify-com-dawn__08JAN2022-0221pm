@@ -2,38 +2,17 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
-      "disabled": true,
       "settings": {
-        "show_collection_description": true,
-        "show_collection_image": false
-      }
-    },
-    "164196176200ffe637": {
-      "type": "collection-group",
-      "settings": {
-        "collection": "t-shirts"
       }
     },
     "product-grid": {
       "type": "main-collection-product-grid",
-      "disabled": true,
       "settings": {
-        "products_per_page": 16,
-        "image_ratio": "adapt",
-        "show_secondary_image": false,
-        "add_image_padding": false,
-        "show_image_outline": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_filtering": true,
-        "enable_sorting": true,
-        "collapse_on_larger_devices": false
       }
     }
   },
   "order": [
     "banner",
-    "164196176200ffe637",
     "product-grid"
   ]
 }
