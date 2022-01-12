@@ -46,6 +46,7 @@
       ],
       "settings": {
         "layout": "grid",
+        "background": "#000000",
         "slide_height": "adapt_image",
         "slider_visual": "dots",
         "auto_rotate": true,
