@@ -5,7 +5,7 @@
             <div class="col-sm-12 col-md-6 d-flex d-flex justify-content-center">
                 <div class="collection1__product-item">
                     <div class="collection1__product-image">
-                        {% if product.images[0] != blank %}>
+                        {% if product.images[0] != blank %}
                         <img srcset="{%- if product.images[0] >= 375 -%}{{ section.settings.image | img_url: '375x' }} 375w,{%- endif -%}
                             {%- if product.images[0] >= 750 -%}{{ product.images[0] | img_url: '750x' }} 750w,{%- endif -%}
                             {%- if product.images[0] >= 1100 -%}{{ product.images[0] | img_url: '1100x' }} 1100w,{%- endif -%}
