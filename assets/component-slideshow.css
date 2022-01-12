@@ -4,8 +4,8 @@ slideshow-component {
 }
 
 .spaced-section--full-width:first-child slideshow-component.page-width {
-  margin-top: 0rem;
-  padding-top: 5rem;
+  margin-top: 0rem !important;
+  padding-top: 6rem;
 }
 
 .spaced-section--full-width:last-child slideshow-component.page-width {
