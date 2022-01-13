@@ -36,8 +36,11 @@
     {%- endfor -%}
     {%- endif -%}
   </ul>
-  <div class="header1__search-container d-none d-lg-block"><input type="text" name="search"><a href="#"><i
-        class="fas fa-search"></i></a></div>
+  <div class="header1__search-container d-none d-lg-block">
+    <input type="text" name="search"><a href="#">
+      <i class="fas fa-search"></i>
+    </a>
+  </div>
   <ul class="header1__mb-nav-links mb-nav d-none">
     {%- if section.settings.menu != blank -%}
     {%- for link in section.settings.menu.links -%}
