@@ -57,14 +57,18 @@
         "slider_visual": "dots",
         "auto_rotate": false,
         "change_slides_speed": 3,
-        "show_text_below": true,
+        "show_text_below": false,
         "accessibility_info": "Slideshow about our brand"
       }
     },
     "164203220265c7b237": {
       "type": "collection-group",
       "settings": {
-        "collection": "t-shirts"
+        "collection": "t-shirts",
+        "xl_col": "col-xl-6",
+        "lg_col": "col-lg-6",
+        "md_col": "col-md-6",
+        "sm_col": "col-sm-6"
       }
     }
   },
