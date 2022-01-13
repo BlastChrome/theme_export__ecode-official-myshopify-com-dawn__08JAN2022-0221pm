@@ -6,12 +6,6 @@
       "settings": {
       }
     },
-    "164203220265c7b237": {
-      "type": "collection-group",
-      "settings": {
-        "collection": ""
-      }
-    },
     "1642032256309ea592": {
       "type": "slideshow",
       "blocks": {
@@ -19,14 +13,14 @@
           "type": "slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/carasouel.png",
-            "heading": "Image slide",
+            "heading": "",
             "heading_size": "medium",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
+            "subheading": "",
+            "button_label": "",
             "link": "",
             "button_style_secondary": false,
             "box_align": "middle-center",
-            "show_text_box": true,
+            "show_text_box": false,
             "text_alignment": "center",
             "image_overlay_opacity": 0,
             "color_scheme": "background-1",
@@ -37,14 +31,14 @@
           "type": "slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/newgif.gif",
-            "heading": "Image slide",
+            "heading": "",
             "heading_size": "medium",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
+            "subheading": "",
+            "button_label": "",
             "link": "",
             "button_style_secondary": false,
             "box_align": "middle-center",
-            "show_text_box": true,
+            "show_text_box": false,
             "text_alignment": "center",
             "image_overlay_opacity": 0,
             "color_scheme": "background-1",
@@ -66,11 +60,17 @@
         "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
       }
+    },
+    "164203220265c7b237": {
+      "type": "collection-group",
+      "settings": {
+        "collection": "t-shirts"
+      }
     }
   },
   "order": [
     "pagefly-home",
-    "164203220265c7b237",
-    "1642032256309ea592"
+    "1642032256309ea592",
+    "164203220265c7b237"
   ]
 }
